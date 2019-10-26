@@ -23,7 +23,7 @@ from scipy.ndimage import zoom
 from scipy.sparse import csr_matrix
 from scipy.spatial.distance import cdist
 import pandas as pd
-import cv2
+# import cv2
 try:
     # Python2
     from StringIO import StringIO

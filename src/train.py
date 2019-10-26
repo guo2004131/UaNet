@@ -14,10 +14,10 @@ import os
 import sys
 from tqdm import tqdm
 import traceback
-# from torch.utils.tensorboard import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = '3'
 
 parser = argparse.ArgumentParser(description='Ua-Net')
 parser.add_argument('--net', '-m', metavar='NET', default=train_config['net'],
@@ -132,9 +132,9 @@ def main():
     writer = None
     train_writer = None
     val_writer = None
-    # writer = SummaryWriter(tb_out_dir)
-    # train_writer = SummaryWriter(os.path.join(tb_out_dir, 'train'))
-    # val_writer = SummaryWriter(os.path.join(tb_out_dir, 'val'))
+    writer = SummaryWriter(tb_out_dir)
+    train_writer = SummaryWriter(os.path.join(tb_out_dir, 'train'))
+    val_writer = SummaryWriter(os.path.join(tb_out_dir, 'val'))
 
     for i in tqdm(range(start_epoch, epochs + 1), desc='Total'):
         # learning rate schedule

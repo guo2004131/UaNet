@@ -33,8 +33,8 @@ import os
 # Preprocessing using preserved HU in dilated part of mask
 data_config = {
     'raw_dir':  None,
-    'data_dir': '../data/raw',
-    'preprocessed_data_dir': '../data/preprocessed',
+    'data_dir': '/home/dg/PycharmProjects/UaNet/data/raw',
+    'preprocessed_data_dir': '/home/dg/PycharmProjects/UaNet/data/preprocessed',
     # 28 OAR names, names from the original dicom RT
     'roi_names': ['Brachial Plexus', 'Brain Stem', 'ConstrictorNaris', 'Ear-L', 'Ear-R', 'Eye-L', 'Eye-R',
         'Hypophysis', 'Larynx', 'Lens L', 'Lens R', 'Mandible', 'Optical Chiasm', 'Optical Nerve L',
@@ -135,7 +135,7 @@ net_config = {
 }
 
 
-def lr_shedule(epoch, init_lr=0.01, total=200):
+def lr_shedule(epoch, init_lr=0.01, total=50):
     if epoch <= total * 0.5:
         lr = init_lr
     elif epoch <= total * 0.8:
@@ -154,7 +154,7 @@ train_config = {
     'weight_decay': 1e-4,
 
     # total # of epochs
-    'epochs': 200,
+    'epochs': 50,
 
     # save check point (model weights) every epoch_save epochs
     'epoch_save': 1,
@@ -178,9 +178,9 @@ train_config = {
     # TODO:
     # You will have to generate your own training data somehow, in order to train the model
     # put all the training filenames into csv, and set the csv path here
-    'train_set_name': 'split/dataset1_2_train.csv',
-    'val_set_name': 'split/dataset1_2_val.csv',
-    'test_set_name': 'split/release_dataset1_test.csv',
+    'train_set_name': '/home/dg/PycharmProjects/UaNet/src/split/release_dataset2_train.csv',
+    'val_set_name': '/home/dg/PycharmProjects/UaNet/src/split/release_dataset2_test.csv',
+    'test_set_name': '/home/dg/PycharmProjects/UaNet/src/split/release_dataset3_test.csv',
     'DATA_DIR': data_config['preprocessed_data_dir'],
     'ROOT_DIR': os.getcwd()
 }
