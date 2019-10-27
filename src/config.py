@@ -135,7 +135,7 @@ net_config = {
 }
 
 
-def lr_shedule(epoch, init_lr=0.01, total=50):
+def lr_shedule(epoch, init_lr=0.01, total=150):
     if epoch <= total * 0.5:
         lr = init_lr
     elif epoch <= total * 0.8:
@@ -154,7 +154,7 @@ train_config = {
     'weight_decay': 1e-4,
 
     # total # of epochs
-    'epochs': 50,
+    'epochs': 150,
 
     # save check point (model weights) every epoch_save epochs
     'epoch_save': 1,
